@@ -1,0 +1,3334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love For You — Version 7 💍</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #e8436a;
+  --rose-light: #f7a8bb;
+  --rose-pale: #fde8ef;
+  --rose-deep: #b5204e;
+  --blush: #fdf0f4;
+  --cream: #fffaf8;
+  --petal: #f9d0dc;
+  --gold: #d4a84b;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ───── CUSTOM CURSOR ───── */
+#cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  width: 28px; height: 28px;
+  transform: translate(-50%,-50%);
+  font-size: 22px;
+  transition: transform .15s ease;
+  will-change: transform;
+}
+#cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  width: 14px; height: 14px;
+  transform: translate(-50%,-50%);
+  font-size: 12px;
+  opacity: 0.5;
+  transition: left .12s ease, top .12s ease;
+  will-change: transform;
+}
+
+/* ───── HERO ───── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fff8fb 0%, #fde0ea 45%, #fce4ec 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 120px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,67,106,.18) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  animation: glowPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes glowPulse {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity:.6; }
+  50% { transform: translate(-50%,-50%) scale(1.25); opacity:1; }
+}
+
+/* Hero floating background emojis */
+.hero-floating-emojis {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-floating-emoji {
+  position: absolute;
+  bottom: -60px;
+  font-size: var(--size);
+  opacity: var(--opacity);
+  animation: floatUpHero var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes floatUpHero {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  50% {
+    transform: translateY(-50vh) rotate(180deg) translateX(var(--sway));
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg) translateX(0);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Two-column layout for larger screens: text left, picture card right */
+@media (min-width: 900px) {
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .hero-left { flex: 1; }
+  .hero-right { flex: 0 0 380px; display:flex; justify-content:center; }
+  .hero-card { width:350px; height:500px; border-radius:16px; padding:0; background:transparent; box-shadow:0 18px 40px rgba(0,0,0,0.12); display:inline-block; overflow:hidden; }
+  .hero-card-caption { display:none; }
+}
+
+.hero-emoji-row {
+  font-size: 2rem;
+  letter-spacing: 12px;
+  margin-bottom: 20px;
+  animation: fadeDown .9s ease both;
+}
+
+.hero-heart {
+  font-size: 7rem;
+  display: inline-block;
+  animation: heartbeat 1.3s ease-in-out infinite, fadeDown 1s ease both;
+  filter: drop-shadow(0 0 28px rgba(232,67,106,.5));
+  cursor: pointer;
+  user-select: none;
+}
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  14% { transform: scale(1.18); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  56% { transform: scale(1); }
+}
+
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  color: var(--rose);
+  line-height: 1.1;
+  animation: fadeDown 1.1s ease both;
+  text-shadow: 0 6px 40px rgba(232,67,106,.25);
+  margin: 16px 0;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  color: var(--rose-deep);
+  letter-spacing: 3px;
+  animation: fadeDown 1.3s ease both;
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0;
+  animation: fadeDown 1.4s ease both;
+}
+.hero-divider::before, .hero-divider::after {
+  content: '';
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-light));
+}
+.hero-divider::after { background: linear-gradient(90deg, var(--rose-light), transparent); }
+
+.hero-quote {
+  max-width: 640px;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: #7a2f50;
+  line-height: 2.1;
+  font-style: italic;
+  animation: fadeDown 1.6s ease both;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--rose-light);
+  font-size: .85rem;
+  letter-spacing: 3px;
+  animation: bounce 2s ease infinite;
+}
+@keyframes bounce { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(10px); } }
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-28px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ───── HEART PHOTO RAIN SECTION ───── */
+.rain-section {
+  padding: 100px 24px;
+  background: linear-gradient(180deg, #fff5f8 0%, #fff 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+#photoRainCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rain-content { position: relative; z-index: 2; }
+
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--rose-light), var(--rose));
+  color: white;
+  padding: 8px 28px;
+  border-radius: 50px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 20px rgba(232,67,106,.3);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--rose);
+  margin-bottom: 10px;
+}
+
+.section-sub {
+  font-style: italic;
+  color: var(--rose-light);
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+/* ───── HEART PHOTO GALLERY (WITH 3D FLIP) ───── */
+.gallery-section {
+  padding: 100px 40px;
+  background: white;
+  position: relative;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.heart-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: floatCard 4s ease-in-out infinite;
+}
+.heart-photo-wrap:nth-child(2) { animation-delay: .5s; }
+.heart-photo-wrap:nth-child(3) { animation-delay: 1s; }
+.heart-photo-wrap:nth-child(4) { animation-delay: 1.5s; }
+.heart-photo-wrap:nth-child(5) { animation-delay: 2s; }
+.heart-photo-wrap:nth-child(6) { animation-delay: 2.5s; }
+@keyframes floatCard {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* 3D Flip Frame */
+.heart-frame {
+  position: relative;
+  width: 240px; height: 240px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.heart-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+}
+
+.heart-frame:hover .heart-card-inner {
+  transform: rotateY(180deg);
+}
+
+.heart-card-front, .heart-card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  top: 0; left: 0;
+}
+
+.heart-card-back {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+.heart-img-container {
+  width: 240px; height: 240px;
+  position: relative;
+  overflow: hidden;
+  clip-path: path('M120 210 C120 210 20 150 20 80 C20 40 50 10 85 10 C100 10 113 17 120 28 C127 17 140 10 155 10 C190 10 220 40 220 80 C220 150 120 210 120 210Z');
+}
+
+.heart-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1rem;
+  color: rgba(255,255,255,.9);
+  font-family: 'Dancing Script', cursive;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s ease;
+}
+
+.heart-img-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.heart-img-placeholder .placeholder-emoji {
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));
+}
+
+.heart-img-placeholder .placeholder-label {
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* Back styling */
+.back-container {
+  background: linear-gradient(135deg, var(--rose-pale), var(--petal));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 24px rgba(232, 67, 106, 0.25);
+}
+
+.heart-back-content {
+  text-align: center;
+  color: var(--rose-deep);
+  font-family: 'Dancing Script', cursive;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; width: 100%;
+}
+
+.back-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+.back-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.heart-border {
+  position: absolute;
+  inset: -6px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Photo instruction */
+.photo-instruction {
+  background: linear-gradient(135deg, #fff5f8, #fde8ef);
+  border: 1px dashed var(--rose-light);
+  border-radius: 16px;
+  padding: 20px 28px;
+  margin: 50px auto 0;
+  max-width: 700px;
+  font-style: italic;
+  color: var(--rose-deep);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ───── REASONS SECTION (FLIP CARDS WITH IMAGE BACK) ───── */
+.reasons-section {
+  padding: 120px 40px;
+  background: linear-gradient(180deg, #fff5f8 0%, #fde8ef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background animated blurred blobs */
+.reasons-bg-blob {
+  position: absolute;
+  width: 350px; height: 350px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatBlob 20s infinite alternate ease-in-out;
+}
+.reasons-bg-blob-1 {
+  background: radial-gradient(circle, var(--rose-light) 0%, transparent 70%);
+  top: 10%; left: 5%;
+}
+.reasons-bg-blob-2 {
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  bottom: 10%; right: 5%;
+  animation-delay: -10s;
+}
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(80px, 40px) scale(1.15) rotate(180deg); }
+  100% { transform: translate(-40px, -60px) scale(0.9) rotate(360deg); }
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Flip card wrapper */
+.reason-flip-wrapper {
+  perspective: 1200px;
+  height: 360px;
+  cursor: pointer;
+}
+
+.reason-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
+  border-radius: 32px;
+}
+
+.reason-flip-wrapper:hover .reason-card {
+  transform: rotateY(180deg);
+}
+
+.reason-card-front, .reason-card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 32px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Front face */
+.reason-card-front {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 40px rgba(232, 67, 106, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+  text-align: center;
+}
+.reason-card-front::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--rose-light), var(--rose), var(--rose-deep));
+  border-radius: 32px 32px 0 0;
+}
+
+/* Back face */
+.reason-card-back {
+  background: linear-gradient(135deg, var(--rose-pale), var(--petal));
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(232, 67, 106, 0.2);
+  box-shadow: 0 10px 40px rgba(232, 67, 106, 0.15);
+}
+
+.reason-back-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  display: none; /* shown when user adds src */
+}
+
+.reason-back-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 14px;
+  padding: 30px;
+  text-align: center;
+}
+.reason-back-placeholder-emoji {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 3px 8px rgba(232,67,106,0.25));
+}
+.reason-back-placeholder-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--rose-deep);
+  line-height: 1.4;
+}
+.reason-back-placeholder-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--rose-light);
+}
+
+.reason-card-accent {
+  position: absolute;
+  top: 18px; right: 20px;
+  font-size: 0.95rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.reason-emoji {
+  font-size: 3.6rem;
+  margin-bottom: 18px;
+  display: inline-block;
+  filter: drop-shadow(0 4px 10px rgba(232, 67, 106, 0.15));
+}
+
+.reason-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.85rem;
+  color: var(--rose-deep);
+  margin-bottom: 14px;
+}
+
+.reason-text {
+  font-size: 1.02rem;
+  color: #8b3c5d;
+  line-height: 2;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.reason-hover-hint {
+  position: absolute;
+  bottom: 14px;
+  font-size: 0.78rem;
+  color: var(--rose-light);
+  letter-spacing: 1.5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ───── QUOTE BAND ───── */
+.quote-band {
+  padding: 130px 40px;
+  background: linear-gradient(135deg, var(--rose-deep), #8b1a3f);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quote-band::before {
+  content: '❝';
+  font-size: 400px;
+  position: absolute;
+  top: -100px; left: 0;
+  color: rgba(255,255,255,.04);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.quote-stars {
+  font-size: 1.6rem;
+  letter-spacing: 14px;
+  margin-bottom: 40px;
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{ opacity:.7; } 50%{ opacity:1; } }
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  color: white;
+  max-width: 820px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+  text-shadow: 0 2px 24px rgba(0,0,0,.2);
+}
+.quote-attr {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: var(--rose-light);
+  letter-spacing: 2px;
+}
+
+/* ───── PROMISE SECTION ───── */
+.promise-section {
+  padding: 100px 40px;
+  background: white;
+  text-align: center;
+}
+
+.promise-carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 50px auto 0;
+  width: min(100%, 1180px);
+}
+
+.promise-carousel .promise-track {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  padding: 16px 0;
+}
+
+.promise-card {
+  flex: 0 0 520px;
+  width: 520px;
+  min-width: 520px;
+  max-width: 520px;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  background: #fff;
+  border: 1px solid rgba(232,67,106,0.12);
+  transition: transform .35s ease, z-index 0s;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.promise-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+.promise-card .card-image {
+  flex: 1.1;
+  min-width: 240px;
+  background-size: cover;
+  background-position: center;
+  transition: flex .35s ease;
+}
+
+.promise-card .card-content {
+  flex: 0.95;
+  padding: 28px 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all .35s ease;
+  background: rgba(255,255,255,0.95);
+}
+
+.promise-card:hover .card-image {
+  flex: 2;
+}
+
+.promise-card:hover .card-content {
+  flex: 0.01;
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.promise-card-title {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: var(--rose-deep);
+  font-weight: 700;
+}
+
+.promise-card-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #5e3146;
+}
+
+.promise-card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+
+.promise-carousel .promise-track[data-direction="ltr"] {
+  animation: scrollLeft 24s linear infinite;
+}
+
+.promise-carousel .promise-track[data-direction="rtl"] {
+  transform: translateX(-50%);
+  animation: scrollRight 24s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (max-width: 840px) {
+  .promise-card {
+    min-width: 360px;
+    flex-direction: column;
+  }
+  .promise-card .card-image {
+    min-width: auto;
+    height: 220px;
+  }
+  .promise-card:hover .card-content {
+    opacity: 1;
+    flex: 1;
+    width: 100%;
+  }
+  .promise-card:hover .card-image {
+    flex: 0;
+  }
+}
+
+/* ───── STATS ───── */
+.stats-section {
+  padding: 80px 40px;
+  background: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 44px 20px;
+  background: linear-gradient(135deg, #fff5f8, #fde8ef);
+  border-radius: 28px;
+  border: 1px solid rgba(232,67,106,.12);
+  transition: transform .3s ease;
+}
+.stat-card:hover { transform: translateY(-6px); }
+.stat-emoji { font-size: 2.8rem; display:block; margin-bottom:16px; }
+.stat-number { font-family:'Playfair Display',serif; font-size:3.8rem; color:var(--rose); display:block; line-height:1; margin-bottom:8px; font-weight:700; }
+.stat-label { font-style:italic; color:var(--rose-light); font-size:1rem; }
+
+/* ───── MARRIAGE PROPOSAL LETTER ───── */
+.letter-section {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #fdf5f8, #fde8ef, #fdf0f4);
+  text-align: center;
+}
+
+/* Envelope styles */
+.envelope-wrapper {
+  position: relative;
+  width: clamp(280px, 90vw, 440px);
+  height: 280px;
+  background-color: #fce8ef;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(232, 67, 106, 0.12);
+  cursor: pointer;
+  margin: 60px auto 0;
+  perspective: 1000px;
+}
+
+.envelope-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--rose-light), #f79cb1);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.envelope-top-flap {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 145px;
+  background: #f7a8bb;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out, z-index 0.2s;
+  z-index: 4;
+}
+.envelope-wrapper.open .envelope-top-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-front-flaps {
+  position: absolute;
+  width: 100%; height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+.envelope-front-flaps::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 50%; height: 100%;
+  background: #fa9db3;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.envelope-front-flaps::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; width: 50%; height: 100%;
+  background: #fa9db3;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.envelope-bottom-flap {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 155px;
+  background: #f88fa6;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  z-index: 3;
+  pointer-events: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.envelope-heart-seal {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -20%) scale(1);
+  font-size: 2.6rem;
+  z-index: 4;
+  color: var(--rose);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.envelope-wrapper.open .envelope-heart-seal {
+  opacity: 0;
+  transform: translate(-50%, -120%) scale(0);
+}
+
+/* The letter slides out */
+.envelope-letter {
+  position: absolute;
+  bottom: 12px;
+  left: 5%;
+  width: 90%;
+  height: 240px;
+  background: #fffaf8;
+  border-radius: 6px;
+  z-index: 2;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+              height 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.8s,
+              opacity 0.5s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  overflow-y: hidden;
+  box-sizing: border-box;
+  text-align: left;
+  opacity: 0.7;
+}
+
+.envelope-wrapper.open .envelope-letter {
+  transform: translateY(-330px);
+  height: 0;
+  opacity: 0;
+  z-index: 5;
+}
+
+/* ── Full-View Letter Overlay ── */
+#letterOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(90, 15, 40, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 99980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  padding: 20px;
+}
+#letterOverlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.letter-full {
+  background: #fffcf8;
+  border-radius: 16px;
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 100px rgba(180, 20, 70, 0.4), 0 0 0 1px rgba(232,67,106,0.1);
+  transform: scale(0.85) translateY(40px);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+#letterOverlay.open .letter-full {
+  transform: scale(1) translateY(0);
+}
+
+#marriedLifePopup {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+#marriedLifePopup.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#marriedLifeCard {
+  transform: scale(0.85) translateY(40px);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#marriedLifePopup.open #marriedLifeCard {
+  transform: scale(1) translateY(0);
+}
+
+/* Scrollbar for letter */
+.letter-full::-webkit-scrollbar { width: 6px; }
+.letter-full::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 3px; }
+
+/* Letter paper texture */
+.letter-paper {
+  padding: 60px 64px 80px;
+  background-image:
+    linear-gradient(rgba(232, 67, 106, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 68px, rgba(232,67,106,0.12) 68px, rgba(232,67,106,0.12) 70px, transparent 70px);
+  background-size: 100% 32px, 100% 100%;
+  font-family: 'Cormorant Garamond', serif;
+  position: relative;
+  min-height: 600px;
+}
+
+/* Top ornament ribbon */
+.letter-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-size: 1.4rem;
+  letter-spacing: 8px;
+}
+
+/* Stamp in top-right corner */
+.letter-stamp {
+  position: absolute;
+  top: 50px;
+  right: 54px;
+  width: 90px;
+  height: 90px;
+  border: 3px solid var(--rose-light);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--rose-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow:
+    inset 0 0 0 4px white,
+    inset 0 0 0 7px var(--rose-light),
+    0 4px 16px rgba(232,67,106,0.2);
+  /* perforated border using dots */
+  outline: none;
+}
+.letter-stamp::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed rgba(232,67,106,0.25);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.letter-stamp img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
+  /* Add src to show image — user will replace */
+  display: none;
+}
+.stamp-placeholder-icon {
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.stamp-placeholder-text {
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--rose-deep);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Date line */
+.letter-date-line {
+  font-style: italic;
+  color: var(--rose-light);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  padding-left: 76px;
+}
+
+/* Greeting */
+.letter-greeting-line {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: var(--rose);
+  margin-bottom: 30px;
+  padding-left: 76px;
+  line-height: 1.2;
+}
+
+/* Body text */
+.letter-body-text {
+  padding-left: 76px;
+  padding-right: 12px;
+}
+.letter-body-text p {
+  font-size: 1.15rem;
+  color: #5e2040;
+  line-height: 2.15;
+  margin-bottom: 24px;
+  text-indent: 20px;
+}
+
+/* Proposal question */
+.proposal-question {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--rose-deep);
+  text-align: center;
+  margin: 40px 0 30px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Close button */
+.letter-close-btn {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--rose-light);
+  transition: color 0.2s, transform 0.2s;
+  z-index: 10;
+  line-height: 1;
+}
+.letter-close-btn:hover { color: var(--rose); transform: scale(1.2) rotate(90deg); }
+
+/* Signature area */
+.letter-signature-area {
+  margin-top: 50px;
+  padding-left: 76px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.signature-from {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #8b3c5d;
+  margin-bottom: 8px;
+}
+
+.signature-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--rose-deep);
+  opacity: 0;
+  transform: scaleX(0.5) translateX(-20px);
+  transform-origin: left center;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+  display: block;
+  min-height: 56px;
+  line-height: 1;
+}
+.signature-text.signed {
+  opacity: 1;
+  transform: scaleX(1) translateX(0);
+}
+.signature-underline {
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rose), transparent);
+  width: 200px;
+  margin-top: 6px;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.5s;
+}
+.signature-underline.signed { opacity: 1; }
+
+/* Sign button */
+#signBtn {
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(232,67,106,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#signBtn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 36px rgba(232,67,106,0.45);
+}
+#signBtn.done {
+  opacity: 0.35;
+  pointer-events: none;
+  transform: none;
+}
+
+.letter-decoration-bottom {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  letter-spacing: 8px;
+  animation: sway 4s ease-in-out infinite;
+}
+@keyframes sway { 0%,100%{ transform:rotate(-2deg); } 50%{ transform:rotate(2deg); } }
+
+/* Scrollbar styles for envelope letter preview */
+.envelope-letter::-webkit-scrollbar { width: 6px; }
+.envelope-letter::-webkit-scrollbar-thumb { background-color: var(--rose-light); border-radius: 3px; }
+
+/* ───── FOOTER ───── */
+.site-footer {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, var(--rose-deep), #8b1a3f);
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-big-heart {
+  font-size: 9rem;
+  display: block;
+  animation: heartbeat 1.5s ease infinite;
+  filter: drop-shadow(0 0 40px rgba(255,182,193,.5));
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+.footer-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  margin-bottom: 22px;
+  text-shadow: 0 4px 24px rgba(0,0,0,.3);
+}
+.footer-sub {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,.82);
+  max-width: 520px;
+  margin: 0 auto 48px;
+  line-height: 2;
+}
+.footer-emojis { font-size: 2rem; letter-spacing: 10px; }
+
+/* ───── SCROLL REVEAL ───── */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity .85s ease, transform .85s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ───── PARTICLES ───── */
+.burst-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99997;
+  font-size: 18px;
+  animation: burstFly 1.3s cubic-bezier(.22,.61,.36,1) forwards;
+}
+@keyframes burstFly {
+  0% { transform: translate(0,0) scale(1.2); opacity:1; }
+  100% { transform: translate(var(--tx),var(--ty)) scale(0); opacity:0; }
+}
+
+/* ───── MUSIC BTN ───── */
+#musicBtn {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 24px rgba(232,67,106,.45);
+  z-index: 1000;
+  transition: transform .3s ease, box-shadow .3s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+#musicBtn:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(232,67,106,.55); }
+#musicBtn.spinning { animation: spinBtn 3s linear infinite; }
+@keyframes spinBtn { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* ───── PHOTO LIGHTBOX ───── */
+#lightbox {
+  position: fixed; inset: 0;
+  background: rgba(100,20,50,.92);
+  z-index: 99990;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+#lightbox.open { display: flex; }
+#lightboxHeart {
+  clip-path: path('M200 340 C200 340 30 240 30 110 C30 50 75 10 130 10 C158 10 185 24 200 44 C215 24 242 10 270 10 C325 10 370 50 370 110 C370 240 200 340 200 340Z');
+  width: 400px; height: 380px;
+  object-fit: cover;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  transform: scale(0.8);
+  animation: popIn .4s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+/* ───── HERO COUPLE IMAGE ───── */
+.hero-couple-wrap {
+  margin-top: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: floatCouple 5s ease-in-out infinite, fadeDown 1.8s ease both;
+}
+@keyframes floatCouple {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-14px); }
+}
+.hero-couple-img {
+  /* image fills the hero card */
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  /* keep face higher in frame */
+  object-position: center 30%;
+  border: 0;
+  box-shadow: none;
+  display: block;
+}
+.hero-couple-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 14px;
+  border: 2px dashed rgba(232,67,106,0.28);
+  animation: rotateSlow 18s linear infinite;
+  pointer-events: none;
+}
+.hero-couple-ring::before {
+  content: '🌹';
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+}
+.hero-couple-ring::after {
+  content: '🌹';
+  position: absolute;
+  bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+}
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.hero-couple-badge {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  color: white;
+  border-radius: 50%;
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 14px rgba(232,67,106,0.5);
+  border: 3px solid white;
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+@keyframes popIn { to { transform: scale(1); } }
+
+/* ───── LOVE TREE SECTION ───── */
+.tree-section {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #fffcf8 0%, #fde8ef 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.tree-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto 0;
+  aspect-ratio: 4 / 3;
+}
+.tree-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tree-frame {
+  position: absolute;
+  transform-origin: top center;
+  animation: swing 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centering the frame horizontally around its coordinate */
+  transform: translateX(-50%);
+  margin-left: -60px; /* half of photo width + border */
+}
+/* override transform to keep the translateX and rotation */
+@keyframes swing {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+.tree-frame:nth-child(2) { animation-duration: 5s; animation-delay: 0.5s; }
+.tree-frame:nth-child(3) { animation-duration: 4.2s; animation-delay: 1.2s; }
+.tree-frame:nth-child(4) { animation-duration: 5.5s; animation-delay: 0.2s; }
+.tree-frame:nth-child(5) { animation-duration: 4.8s; animation-delay: 1.8s; }
+.tree-frame:nth-child(6) { animation-duration: 6s; animation-delay: 0.7s; }
+
+.tree-string {
+  width: 4px;
+  height: 50px;
+  background: repeating-linear-gradient(
+    45deg,
+    #d4a84b,
+    #d4a84b 3px,
+    #f9d0dc 3px,
+    #f9d0dc 6px
+  );
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 0;
+}
+/* A little bow at the top of the photo */
+.tree-string::after {
+  content: '🎀';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  z-index: 5;
+  filter: drop-shadow(0 2px 4px rgba(232,67,106,0.4));
+}
+.tree-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    0 0 0 4px #d4a84b,
+    0 0 0 8px #f9d0dc,
+    0 15px 35px rgba(232,67,106,0.4);
+  background: #fff;
+  z-index: 1;
+}
+.tree-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #d4a84b;
+  pointer-events: none;
+  z-index: 3;
+}
+.tree-photo::after {
+  content: '✨';
+  position: absolute;
+  bottom: -14px;
+  right: -14px;
+  font-size: 1.6rem;
+  background: #fff;
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(232,67,106,0.4);
+  border: 2px solid #d4a84b;
+  z-index: 4;
+}
+.tree-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+.tree-frame:hover .tree-photo img {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+.tree-container::before {
+  content: '✨ 💖 🌸 ✨ 💖';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  letter-spacing: 120px;
+  opacity: 0.4;
+  animation: twinkle 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.tree-container::after {
+  content: '🌸 ✨ 💕 🌸';
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  letter-spacing: 180px;
+  opacity: 0.3;
+  animation: twinkle 4s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .tree-photo { width: 80px; height: 80px; border-width: 3px; }
+  .tree-frame { margin-left: -40px; }
+  .tree-string { height: 35px; }
+}
+
+/* ───── BIRDS ANIMATION ───── */
+.bird-wing-left {
+  animation: wingFlapLeft 0.45s ease-in-out infinite alternate;
+}
+.bird-wing-right {
+  animation: wingFlapRight 0.45s ease-in-out infinite alternate;
+}
+@keyframes wingFlapLeft {
+  0% { transform: rotate(18deg); }
+  100% { transform: rotate(-35deg); }
+}
+@keyframes wingFlapRight {
+  0% { transform: rotate(-18deg); }
+  100% { transform: rotate(35deg); }
+}
+
+/* Flying path animations */
+.flying-bird-1 {
+  animation: flyBird1 18s linear infinite;
+}
+.flying-bird-2 {
+  animation: flyBird2 24s linear infinite;
+  animation-delay: 4.5s;
+}
+@keyframes flyBird1 {
+  0% { transform: translate(-100px, 140px) scale(0.6); }
+  50% { transform: translate(500px, 90px) scale(0.6); }
+  100% { transform: translate(1100px, 150px) scale(0.6); }
+}
+@keyframes flyBird2 {
+  0% { transform: translate(1100px, 190px) scale(0.45) scaleX(-1); }
+  50% { transform: translate(500px, 240px) scale(0.45) scaleX(-1); }
+  100% { transform: translate(-100px, 110px) scale(0.45) scaleX(-1); }
+}
+
+/* Perched Lovebirds */
+.lovebird {
+  transform-origin: center;
+  animation: lovebirdSway 3s ease-in-out infinite alternate;
+}
+.lovebird-1 {
+  animation-delay: 0.15s;
+}
+.lovebird-2 {
+  animation-delay: 0.75s;
+}
+@keyframes lovebirdSway {
+  0% { transform: rotate(-3deg) translateY(0); }
+  100% { transform: rotate(3deg) translateY(-2px); }
+}
+
+/* ───── CLOUD REVEAL GATE SECTION ───── */
+.cloud-gate-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220vh;
+  background: #fffcf8;
+}
+
+.cloud-gate-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fff5f8 0%, #fde8ef 100%);
+  z-index: 80;
+}
+
+/* Dreamy background */
+.cloud-sky-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #fffbfd 0%, #fce4ec 70%, #f8bbd0 100%);
+  z-index: 1;
+}
+
+.cloud-stars {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(white 1px, transparent 0),
+    radial-gradient(rgba(255,255,255,0.7) 1.5px, transparent 0);
+  background-size: 40px 40px, 80px 80px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+/* Content hidden behind clouds */
+.cloud-revealed-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 40px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cloud-reveal-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--rose-deep);
+  margin: 16px 0;
+  text-shadow: 0 4px 15px rgba(232,67,106,0.15);
+}
+
+.cloud-reveal-sub {
+  font-size: 1.15rem;
+  color: #5e2040;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* 3D Photo Grid inside clouds */
+.cloud-photos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  perspective: 1200px;
+}
+
+.cloud-photo-card {
+  width: 250px;
+  height: 350px;
+  background: white;
+  border-radius: 24px;
+  padding: 12px 12px 24px;
+  box-shadow: 0 15px 35px rgba(232, 67, 106, 0.12), 0 0 0 1px rgba(232, 67, 106, 0.05);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+  cursor: pointer;
+}
+
+.cloud-photo-card:hover {
+  transform: translateY(-15px) rotateY(10deg) scale(1.05);
+  box-shadow: 0 25px 50px rgba(232, 67, 106, 0.22);
+}
+
+.cloud-photo-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cloud-photo-inner img {
+  width: 100%;
+  flex: 1;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.5s ease;
+}
+
+.cloud-photo-card:hover .cloud-photo-inner img {
+  transform: scale(1.08);
+}
+
+.cloud-photo-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--rose-deep);
+  font-weight: 700;
+  text-align: center;
+  margin-top: 16px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+/* Cloud Layers */
+.cloud-layers-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cloud-layer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  transition: transform 0.1s linear, opacity 0.15s ease;
+}
+
+/* Left side layers */
+.cloud-left-1 {
+  left: 0;
+  z-index: 13; /* front */
+}
+.cloud-left-2 {
+  left: 0;
+  z-index: 12; /* mid */
+  opacity: 0.9;
+}
+.cloud-left-3 {
+  left: 0;
+  z-index: 11; /* back */
+  opacity: 0.75;
+}
+
+/* Right side layers */
+.cloud-right-1 {
+  right: 0;
+  z-index: 13;
+}
+.cloud-right-2 {
+  right: 0;
+  z-index: 12;
+  opacity: 0.9;
+}
+.cloud-right-3 {
+  right: 0;
+  z-index: 11;
+  opacity: 0.75;
+}
+
+/* Floating foreground puff clouds */
+.cloud-puff {
+  position: absolute;
+  z-index: 15;
+  transition: transform 0.1s linear, opacity 0.1s ease;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cloud-photos-grid {
+    gap: 12px;
+  }
+  .cloud-photo-card {
+    width: 95px;
+    height: 140px;
+    border-radius: 12px;
+    padding: 6px 6px 10px;
+  }
+  .cloud-photo-caption {
+    font-size: 0.65rem;
+    margin-top: 6px;
+  }
+  .cloud-reveal-title {
+    font-size: 2rem;
+    margin: 8px 0;
+  }
+  .cloud-reveal-sub {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  .cloud-layer {
+    width: 65%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cursor">💗</div>
+<div id="cursor-trail">🌸</div>
+
+<!-- Music button -->
+<button id="musicBtn" title="Play music">🎵</button>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <div id="lightboxHeart"></div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-floating-emojis" id="heroFloatingEmojis"></div>
+  
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-emoji-row">💕 🌹 💖 🌸 💝 🌷 💗</div>
+      <div class="hero-heart" id="heroHeart">💗</div>
+      <h1>You Are My<br>Everything</h1>
+      <p class="hero-sub">— A love deeper than the entire universe —</p>
+      <div class="hero-divider">🌹</div>
+      <p class="hero-quote">
+        "In all the infinite stars, all the galaxies, all the worlds that have ever existed —
+        nothing, nothing compares to the light you bring into my life.
+        You are not just my love. You are my home, my heartbeat, my everything."
+      </p>
+      <div class="scroll-cue">
+        <span>↓</span>
+        <span style="font-size:.7rem;letter-spacing:4px;">scroll into our love</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-couple-wrap">
+          <img
+            class="hero-couple-img"
+            src="assets/image51.png"
+            alt="A romantic couple"
+          />
+          <div class="hero-couple-ring"></div>
+          <div class="hero-couple-badge">💗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HEART PHOTO RAIN ═══════════ -->
+<section class="rain-section">
+  <canvas id="photoRainCanvas"></canvas>
+  <div class="rain-content">
+    <div class="section-badge reveal">💞 Our Memories Rain Down</div>
+    <h2 class="section-title reveal">Photos Falling Like Love</h2>
+    <p class="section-sub reveal">Your photos rain from the sky — because you shower my life with joy 🌸</p>
+    <p style="font-style:italic; color:var(--rose-light); font-size:.95rem; position:relative; z-index:2;" class="reveal">
+      💡 Hover to flip the heart cards below, and click to view photos in full resolution!
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ HEART PHOTO GALLERY (3D FLIP CARDS) ═══════════ -->
+<section class="gallery-section">
+  <div class="section-badge reveal" style="display:block; text-align:center; margin-bottom:16px;">🌹 Heart Frames — Flip & Explore</div>
+
+  <div class="photos-grid">
+
+    <!-- PHOTO 1 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image2.jpg" alt="Memory photo 1">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad1)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs>
+                <linearGradient id="heartGrad1" x1="0" y1="0" x2="240" y2="240">
+                  <stop offset="0%" stop-color="#f7a8bb"/>
+                  <stop offset="100%" stop-color="#e8436a"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">💕</span>
+                <p class="back-text">The moment I fell for you</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad1)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image31.jpg" alt="Memory photo 2" style="object-position: center 25%;">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad2)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs><linearGradient id="heartGrad2" x1="0" y1="0" x2="240" y2="240">
+                <stop offset="0%" stop-color="#ffb3c1"/><stop offset="100%" stop-color="#d63865"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">🌸</span>
+                <p class="back-text">Every day with you is a gift</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad2)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image35.jpg" alt="Memory photo 3" style="object-position: center 15%;">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad3)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs><linearGradient id="heartGrad3" x1="0" y1="0" x2="240" y2="240">
+                <stop offset="0%" stop-color="#f5c0d0"/><stop offset="100%" stop-color="#c2185b"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">✨</span>
+                <p class="back-text">Under the stars with you</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad3)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTO 4 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image5.jpg" alt="Memory photo 4" style="object-position: center 10%;">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad4)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs><linearGradient id="heartGrad4" x1="0" y1="0" x2="240" y2="240">
+                <stop offset="0%" stop-color="#fce8f0"/><stop offset="100%" stop-color="#e8436a"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">🌺</span>
+                <p class="back-text">You bloom in my heart always</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad4)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTO 5 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image1.jpg" alt="Memory photo 5" style="object-position: center 20%;">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad5)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs><linearGradient id="heartGrad5" x1="0" y1="0" x2="240" y2="240">
+                <stop offset="0%" stop-color="#f7a8bb"/><stop offset="100%" stop-color="#b5204e"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">🫂</span>
+                <p class="back-text">In your arms is where I belong</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad5)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTO 6 -->
+    <div class="heart-photo-wrap reveal">
+      <div class="heart-frame" onclick="openLightbox(this)">
+        <div class="heart-card-inner">
+          <div class="heart-card-front">
+            <div class="heart-img-container">
+              <div class="heart-img-placeholder">
+                <img src="assets/image7.jpg" alt="Memory photo 6">
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad6)" stroke-width="3" fill="none" opacity="0.8"/>
+              <defs><linearGradient id="heartGrad6" x1="0" y1="0" x2="240" y2="240">
+                <stop offset="0%" stop-color="#fce8f0"/><stop offset="100%" stop-color="#8b1a3f"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
+          <div class="heart-card-back">
+            <div class="heart-img-container back-container">
+              <div class="heart-back-content">
+                <span class="back-emoji">♾️</span>
+                <p class="back-text">Forever and always, my love</p>
+              </div>
+            </div>
+            <svg class="heart-border" viewBox="0 0 240 240" fill="none">
+              <path d="M120 215 C120 215 15 152 15 78 C15 36 47 6 84 6 C100 6 114 14 120 26 C126 14 140 6 156 6 C193 6 225 36 225 78 C225 152 120 215 120 215Z"
+                stroke="url(#heartGrad6)" stroke-width="3" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /photos-grid -->
+
+
+</section>
+
+<!-- ═══════════ REASONS (WITH 3D TILT EFFECT) ═══════════ -->
+<section class="reasons-section">
+  <div class="reasons-bg-blob reasons-bg-blob-1"></div>
+  <div class="reasons-bg-blob reasons-bg-blob-2"></div>
+
+  <h2 class="section-title reveal" style="text-align:center;">Why I Love You</h2>
+  <p class="section-sub reveal" style="text-align:center;">The universe gave me a million stars — and I chose you 💫</p>
+
+  <div class="reasons-grid">
+
+    <!-- Reason 1 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">😊</span>
+          <h3 class="reason-title">Your Smile</h3>
+          <p class="reason-text">When you smile, the whole world becomes warmer. Your smile is my favourite sight in the entire universe.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image7.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 2 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">💭</span>
+          <h3 class="reason-title">Your Beautiful Mind</h3>
+          <p class="reason-text">The way you see the world — it leaves me breathless. You are brilliant and luminous and I am endlessly in awe.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image9.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 3 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">🤝</span>
+          <h3 class="reason-title">Your Kindness</h3>
+          <p class="reason-text">Your heart is spun from gold. The love you pour into every person around you makes me fall harder for you each day.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image21.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 4 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">😂</span>
+          <h3 class="reason-title">Your Laugh</h3>
+          <p class="reason-text">Your laughter is the most joyful sound I have ever heard. When you laugh, the whole room lifts — and my heart lifts right along.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image11.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 5 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">🌟</span>
+          <h3 class="reason-title">Your Light</h3>
+          <p class="reason-text">You light up every space you walk into. You are the light I will always follow, through darkest nights and brightest days.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image16.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 6 -->
+    <div class="reason-flip-wrapper reveal">
+      <div class="reason-card">
+        <div class="reason-card-front">
+          <span class="reason-card-accent">✦</span>
+          <span class="reason-emoji">💪</span>
+          <h3 class="reason-title">Your Strength</h3>
+          <p class="reason-text">You are the most resilient, courageous person I know. Watching you take on the world with grace fills me with the deepest pride.</p>
+          <span class="reason-hover-hint">hover to see 💗</span>
+        </div>
+        <div class="reason-card-back">
+          <img class="reason-back-img" src="assets/image13.jpg" style="display:block;" alt="Your photo here">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ QUOTE BAND ═══════════ -->
+<section class="quote-band">
+  <div class="quote-stars">🌹 💕 🌹 💕 🌹 💕 🌹</div>
+  <p class="quote-text reveal">
+    "I love you — not only for what you are,<br>
+    but for what I become when I am with you.<br>
+    You make the whole universe feel like home."
+  </p>
+  <p class="quote-attr reveal">— Written from my heart to yours 💗</p>
+  <div class="quote-stars" style="margin-top:40px;">💗 💗 💗 💗 💗 💗 💗</div>
+</section>
+
+<!-- ═══════════ PROMISES ═══════════ -->
+<section class="promise-section">
+  <h2 class="section-title reveal">My Promises to You</h2>
+  <p class="section-sub reveal">A continuous love carousel — each card blends a memory-filled image with a promise.</p>
+
+  <div class="promise-carousel reveal">
+    <div class="promise-track" data-direction="ltr">
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image35.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🛡️</span>
+          <span class="promise-card-title">Protect You Always</span>
+          <p class="promise-card-desc">I promise to protect your heart and make you feel safe in every moment we share.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image24.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌅</span>
+          <span class="promise-card-title">Be Your Sunrise</span>
+          <p class="promise-card-desc">I promise to be your light in the dark, your calm when the storm surrounds us.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image25.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🤗</span>
+          <span class="promise-card-title">Hold You Close</span>
+          <p class="promise-card-desc">I promise to hold you close when you need it, and to give you room to grow when you need space.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image26.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">😂</span>
+          <span class="promise-card-title">Make You Laugh</span>
+          <p class="promise-card-desc">I promise to make you laugh, to fill every day with joy and shared happiness.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image27.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌱</span>
+          <span class="promise-card-title">Grow With You</span>
+          <p class="promise-card-desc">I promise to grow with you, to cheer for your dreams and be your biggest supporter.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image13.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">♾️</span>
+          <span class="promise-card-title">Forever & Always</span>
+          <p class="promise-card-desc">I promise to love you today, tomorrow, and for every lifetime after this one.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image35.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🛡️</span>
+          <span class="promise-card-title">Protect You Always</span>
+          <p class="promise-card-desc">I promise to protect your heart and make you feel safe in every moment we share.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image24.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌅</span>
+          <span class="promise-card-title">Be Your Sunrise</span>
+          <p class="promise-card-desc">I promise to be your light in the dark, your calm when the storm surrounds us.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="promise-carousel reveal">
+    <div class="promise-track" data-direction="rtl">
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image13.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">♾️</span>
+          <span class="promise-card-title">Forever & Always</span>
+          <p class="promise-card-desc">I promise to love you today, tomorrow, and for every lifetime after this one.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image27.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌱</span>
+          <span class="promise-card-title">Grow With You</span>
+          <p class="promise-card-desc">I promise to grow with you, to cheer for your dreams and be your biggest supporter.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image26.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">😂</span>
+          <span class="promise-card-title">Make You Laugh</span>
+          <p class="promise-card-desc">I promise to make you laugh, to fill every day with joy and shared happiness.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image25.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🤗</span>
+          <span class="promise-card-title">Hold You Close</span>
+          <p class="promise-card-desc">I promise to hold you close when you need it, and to give you room to grow when you need space.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image24.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌅</span>
+          <span class="promise-card-title">Be Your Sunrise</span>
+          <p class="promise-card-desc">I promise to be your light in the dark, your calm when the storm surrounds us.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image35.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🛡️</span>
+          <span class="promise-card-title">Protect You Always</span>
+          <p class="promise-card-desc">I promise to protect your heart and make you feel safe in every moment we share.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image28.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">♾️</span>
+          <span class="promise-card-title">Forever & Always</span>
+          <p class="promise-card-desc">I promise to love you today, tomorrow, and for every lifetime after this one.</p>
+        </div>
+      </article>
+      <article class="promise-card">
+        <div class="card-image" style="background-image:url('assets/image27.jpg');"></div>
+        <div class="card-content">
+          <span class="promise-card-icon">🌱</span>
+          <span class="promise-card-title">Grow With You</span>
+          <p class="promise-card-desc">I promise to grow with you, to cheer for your dreams and be your biggest supporter.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<section class="stats-section">
+  <h2 class="section-title reveal" style="text-align:center;">The Mathematics of Us 💫</h2>
+  <p class="section-sub reveal" style="text-align:center;">Numbers that explain what you mean to me...</p>
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <span class="stat-emoji">🗓️</span>
+      <span class="stat-number" id="daysTogether">0</span>
+      <span class="stat-label">days together &amp; counting</span>
+    </div>
+    <div class="stat-card reveal">
+      <span class="stat-emoji">🌹</span>
+      <span class="stat-number">∞</span>
+      <span class="stat-label">reasons I love you</span>
+    </div>
+    <div class="stat-card reveal">
+      <span class="stat-emoji">⭐</span>
+      <span class="stat-number">1</span>
+      <span class="stat-label">person in my entire universe</span>
+    </div>
+    <div class="stat-card reveal">
+      <span class="stat-emoji">💕</span>
+      <span class="stat-number">100%</span>
+      <span class="stat-label">of my heart — always yours</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DREAMY CLOUD REVEAL ═══════════ -->
+<section class="cloud-gate-wrapper">
+  <div class="cloud-gate-sticky">
+    <!-- Starry & Glowing Background -->
+    <div class="cloud-sky-bg">
+      <div class="cloud-stars"></div>
+    </div>
+
+    <!-- Hidden Photos & Message Revealed -->
+    <div class="cloud-revealed-content">
+      <div class="section-badge">☁️ In the Clouds with You</div>
+      <h2 class="cloud-reveal-title">Floating in Dreamland</h2>
+      <p class="cloud-reveal-sub">Every day with you feels like floating in a beautiful dream...</p>
+
+      <div class="cloud-photos-grid">
+        <!-- Photo 1: Left -->
+        <div class="cloud-photo-card" onclick="openCloudLightbox(this)">
+          <div class="cloud-photo-inner">
+            <img src="assets/image34.jpg" alt="Dreamy memory 1">
+            <div class="cloud-photo-caption">Our beautiful dream... ☁️</div>
+          </div>
+        </div>
+        <!-- Photo 2: Center -->
+        <div class="cloud-photo-card" onclick="openCloudLightbox(this)">
+          <div class="cloud-photo-inner">
+            <img src="assets/image22.jpg" alt="Dreamy memory 2">
+            <div class="cloud-photo-caption">My dream come true ✨</div>
+          </div>
+        </div>
+        <!-- Photo 3: Right -->
+        <div class="cloud-photo-card" onclick="openCloudLightbox(this)">
+          <div class="cloud-photo-inner">
+            <img src="assets/image15.jpg" alt="Dreamy memory 3">
+            <div class="cloud-photo-caption">Floating on cloud nine 💕</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallax Cloud Layers overlay -->
+    <div class="cloud-layers-container">
+      <!-- Left side layers -->
+      <div class="cloud-layer cloud-left-3">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudLGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffebf0" />
+              <stop offset="70%" stop-color="#fca2be" />
+              <stop offset="100%" stop-color="#d63865" stop-opacity="0.6" />
+            </linearGradient>
+          </defs>
+          <path d="M 0 0 L 240 0 C 300 40, 320 100, 260 150 C 340 200, 360 300, 280 350 C 340 420, 320 520, 240 580 C 300 650, 260 750, 200 800 L 0 1000 Z" fill="url(#cloudLGrad3)" opacity="0.6" />
+        </svg>
+      </div>
+      <div class="cloud-layer cloud-left-2">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudLGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#fff2f6" />
+              <stop offset="50%" stop-color="#ffe6ed" />
+              <stop offset="100%" stop-color="#fca5be" />
+            </linearGradient>
+          </defs>
+          <path d="M 0 0 L 320 0 C 400 60, 420 140, 350 200 C 450 260, 480 380, 360 450 C 440 520, 420 650, 320 720 C 380 800, 340 900, 260 1000 L 0 1000 Z" fill="url(#cloudLGrad2)" opacity="0.85" />
+        </svg>
+      </div>
+      <div class="cloud-layer cloud-left-1">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudLGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#fff" />
+              <stop offset="40%" stop-color="#fffefe" />
+              <stop offset="85%" stop-color="#ffdbe7" />
+              <stop offset="100%" stop-color="#ffccd9" />
+            </linearGradient>
+          </defs>
+          <path d="M 0 0 L 400 0 C 480 80, 520 180, 440 250 C 540 300, 580 450, 420 520 C 520 600, 500 750, 380 820 C 440 900, 380 980, 300 1000 L 0 1000 Z" fill="url(#cloudLGrad1)" filter="drop-shadow(5px 5px 25px rgba(232, 67, 106, 0.12))" />
+        </svg>
+      </div>
+
+      <!-- Right side layers -->
+      <div class="cloud-layer cloud-right-3">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudRGrad3" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#ffebf0" />
+              <stop offset="70%" stop-color="#fca2be" />
+              <stop offset="100%" stop-color="#d63865" stop-opacity="0.6" />
+            </linearGradient>
+          </defs>
+          <path d="M 600 0 L 360 0 C 300 40, 280 100, 340 150 C 260 200, 240 300, 320 350 C 260 420, 280 520, 360 580 C 300 650, 340 750, 400 800 L 600 1000 Z" fill="url(#cloudRGrad3)" opacity="0.6" />
+        </svg>
+      </div>
+      <div class="cloud-layer cloud-right-2">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudRGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#fff2f6" />
+              <stop offset="50%" stop-color="#ffe6ed" />
+              <stop offset="100%" stop-color="#fca5be" />
+            </linearGradient>
+          </defs>
+          <path d="M 600 0 L 280 0 C 200 60, 180 140, 250 200 C 150 260, 120 380, 240 450 C 160 520, 180 650, 280 720 C 220 800, 260 900, 340 1000 L 600 1000 Z" fill="url(#cloudRGrad2)" opacity="0.85" />
+        </svg>
+      </div>
+      <div class="cloud-layer cloud-right-1">
+        <svg viewBox="0 0 600 1000" preserveAspectRatio="none" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="cloudRGrad1" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#fff" />
+              <stop offset="40%" stop-color="#fffefe" />
+              <stop offset="85%" stop-color="#ffdbe7" />
+              <stop offset="100%" stop-color="#ffccd9" />
+            </linearGradient>
+          </defs>
+          <path d="M 600 0 L 200 0 C 120 80, 80 180, 160 250 C 60 300, 20 450, 180 520 C 80 600, 100 750, 220 820 C 160 900, 220 980, 300 1000 L 600 1000 Z" fill="url(#cloudRGrad1)" filter="drop-shadow(-5px 5px 25px rgba(232, 67, 106, 0.12))" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Floating foreground puffs for absolute depth -->
+    <div class="cloud-puff puff-1" style="top: 12%; left: 15%; width: 180px;">
+      <svg viewBox="0 0 200 120" fill="white" opacity="0.9">
+        <path d="M 30 90 A 30 30 0 0 1 50 40 A 35 35 0 0 1 110 30 A 40 40 0 0 1 170 60 A 30 30 0 0 1 160 90 Z" />
+      </svg>
+    </div>
+    <div class="cloud-puff puff-2" style="bottom: 12%; right: 15%; width: 220px;">
+      <svg viewBox="0 0 200 120" fill="#fff0f4" opacity="0.85">
+        <path d="M 30 90 A 30 30 0 0 1 50 40 A 35 35 0 0 1 110 30 A 40 40 0 0 1 170 60 A 30 30 0 0 1 160 90 Z" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MARRIAGE PROPOSAL LETTER ═══════════ -->
+<section class="letter-section">
+  <div class="section-badge reveal" style="margin-bottom: 24px;">💍 Sealed With A Kiss</div>
+  <h2 class="section-title reveal">A Letter From My Heart</h2>
+  <p class="section-sub reveal">Click the envelope to open my proposal letter 💌</p>
+
+  <div class="envelope-wrapper reveal" onclick="toggleEnvelope(this, event)">
+    <div class="envelope-back"></div>
+    <div class="envelope-letter"></div>
+    <div class="envelope-top-flap"></div>
+    <div class="envelope-front-flaps"></div>
+    <div class="envelope-bottom-flap"></div>
+    <div class="envelope-heart-seal">💍</div>
+  </div>
+</section>
+
+<!-- ═══════════ FULL-VIEW LETTER OVERLAY ═══════════ -->
+<div id="letterOverlay">
+  <div class="letter-full">
+    <button class="letter-close-btn" onclick="closeLetter()" title="Close">✕</button>
+
+    <div class="letter-paper">
+
+      <!-- Stamp top-right -->
+      <div class="letter-stamp" title="Replace this stamp with your image">
+        <img src="assets/image39.jpg" alt="Letter stamp" style="display:block;">
+      </div>
+
+      <!-- Top ribbon -->
+      <div class="letter-ribbon">🌹 💍 🌹 💍 🌹</div>
+
+      <!-- Date -->
+      <p class="letter-date-line">30th May, 2026 &nbsp;|&nbsp; Written with all my love 💕</p>
+
+      <!-- Greeting -->
+      <p class="letter-greeting-line">My World Papa, 💗</p>
+
+      <!-- Body -->
+      <div class="letter-body-text">
+        <p>Ever since the 26th of July, 2022, my world has never been the same. That was the day you walked into my life — quietly, softly — and rearranged everything. The stars aligned in ways I never thought possible, and in the middle of all of it, there was you.</p>
+
+        <p>I have spent these years loving every version of you — your laughter that fills a room before you even say a word, your eyes that hold an entire universe, your kindness that makes everyone around you feel seen and cherished. Loving you is the easiest, most natural thing I have ever done.</p>
+
+        <p>You are my calm on restless nights, my joy on ordinary mornings, my home in every sense of the word. I love you on your radiant days when your smile lights up the sky, and I love you on your quiet days when you need the world to slow down just a little. I love you in every season, in every moment, in every breath.</p>
+
+        <p>I have searched the whole universe for words grand enough to hold what you mean to me. I tried the stars. The ocean. The dawn. None of them quite fit — because you are not like anything else that exists. You are entirely, perfectly, irreplaceably <em>you</em>.</p>
+
+        <p>And so, with every heartbeat that has counted since that beautiful day we began — with every beat that belongs completely to you — I ask you this, from the deepest place in my soul:</p>
+      </div>
+
+      <!-- The Proposal Question -->
+      <p class="proposal-question">" Will you marry me, Papa? 💍 "<br><span style="font-size:1rem; font-family:'Cormorant Garamond',serif; font-style:normal; color:var(--rose-light);">Will you let me love you for every lifetime that follows this one?</span></p>
+
+      <div class="letter-body-text">
+        <p>I promise to be your sunrise on darkest mornings and your calm in every storm. I promise to make you laugh every day, to hold you close when you need it, and to give you space when you need that too. I promise to grow alongside you, to cheer every dream you chase, and to be your home — always, unconditionally, forever.</p>
+      </div>
+
+      <!-- Signature area -->
+      <div class="letter-signature-area">
+        <div>
+          <span class="signature-from">Forever yours, with every piece of my heart 💗</span>
+          <span class="signature-text" id="signatureText">Abinaya</span>
+          <span class="signature-underline" id="signatureUnderline"></span>
+        </div>
+        <button id="signBtn" onclick="applySignature()">✍️ Click to Sign</button>
+      </div>
+
+      <!-- Bottom decoration -->
+      <div class="letter-decoration-bottom">🌹 🌸 💍 🌸 🌹</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HAPPY MARRIED LIFE POPUP ═══════════ -->
+<div id="marriedLifePopup" style="
+  position: fixed; inset: 0;
+  background: rgba(90, 15, 40, 0.82);
+  backdrop-filter: blur(14px);
+  z-index: 999990;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+">
+  <div style="
+    background: linear-gradient(160deg, #fff8fb 0%, #fde0ea 60%, #fce4ec 100%);
+    border-radius: 28px;
+    max-width: 520px; width: 100%;
+    padding: 56px 48px 48px;
+    text-align: center;
+    box-shadow: 0 40px 120px rgba(180,20,70,0.45), 0 0 0 1px rgba(232,67,106,0.12);
+    position: relative;
+  " id="marriedLifeCard">
+
+    <!-- Close button -->
+    <button onclick="document.getElementById('marriedLifePopup').classList.remove('open')" style="
+      position: absolute; top: 18px; right: 22px;
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; color: var(--rose-light);
+      transition: transform 0.2s, color 0.2s; line-height: 1;
+    " onmouseover="this.style.color='var(--rose)';this.style.transform='scale(1.2) rotate(90deg)'"
+       onmouseout="this.style.color='var(--rose-light)';this.style.transform=''">✕</button>
+
+    <!-- Rings image -->
+    <div style="font-size: 5rem; margin-bottom: 8px; animation: heartbeat 1.3s ease-in-out infinite; filter: drop-shadow(0 0 20px rgba(232,67,106,0.4));">💍</div>
+
+    <!-- Emoji row -->
+    <div style="font-size: 1.5rem; letter-spacing: 10px; margin-bottom: 20px; opacity: 0.75;">🌹 💕 🌸 💖 🌷</div>
+
+    <!-- Main message -->
+    <h2 style="
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      color: var(--rose);
+      line-height: 1.2; margin: 0 0 16px;
+      text-shadow: 0 4px 24px rgba(232,67,106,0.2);
+    ">Happy Married Life!</h2>
+
+    <!-- Subtext -->
+    <p style="
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--rose-deep);
+      line-height: 2; margin: 0 0 28px;
+    ">
+      To a lifetime of laughter, love, and endless adventures together.<br>
+      May every single day feel as magical as today. ✨
+    </p>
+
+    <!-- Divider -->
+    <div style="display:flex; align-items:center; gap:12px; margin: 0 0 28px; justify-content:center;">
+      <div style="width:80px; height:1px; background: rgba(232,67,106,0.15); border-radius: 999px;"></div>
+    </div>
+    <button onclick="scrollToTree()" style="margin-top:14px; padding:14px 28px; background: linear-gradient(135deg, #f5a3c8, #e82e6d); border:none; border-radius:999px; color:white; font-size:1rem; cursor:pointer; box-shadow: 0 16px 36px rgba(232,67,106,0.25); transition: transform .2s ease;">
+      View Our Love Tree 🌳
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════ LOVE TREE ═══════════ -->
+<section class="tree-section" id="loveTreeSection">
+  <div class="section-badge reveal" style="margin-bottom: 24px;">🌳 Our Love Tree</div>
+  <h2 class="section-title reveal">Memories Growing Strong</h2>
+  <p class="section-sub reveal">Our love is deeply rooted and blossoms with every memory we share.</p>
+
+  <div class="tree-container reveal">
+    <!-- Elegant Vector Cherry Blossom Tree -->
+    <svg class="tree-svg" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMax meet">
+      <defs>
+        <!-- Simple elegant gradients -->
+        <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3a2012" />
+          <stop offset="50%" stop-color="#5c3826" />
+          <stop offset="100%" stop-color="#2a140a" />
+        </linearGradient>
+        <radialGradient id="leafGrad1" cx="30%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#ffd1dc" />
+          <stop offset="50%" stop-color="#ff9eb5" />
+          <stop offset="100%" stop-color="#e8436a" />
+        </radialGradient>
+        <radialGradient id="leafGrad2" cx="30%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#fff0f5" />
+          <stop offset="50%" stop-color="#ff7597" />
+          <stop offset="100%" stop-color="#c9184a" />
+        </radialGradient>
+      </defs>
+
+      <!-- Clean soft ground -->
+      <path d="M 0 800 Q 500 700 1000 800 Z" fill="#fdf0f4" />
+
+      <!-- Elegant Trunk & Sweeping Branches -->
+      <path d="M 450 800 Q 480 550, 500 450 Q 520 550, 550 800 Z" fill="url(#trunkGrad)" />
+      
+      <!-- Sweeping Branch 1 (Left low) -->
+      <path d="M 490 550 Q 300 480, 150 450" stroke="url(#trunkGrad)" stroke-width="16" fill="none" stroke-linecap="round" />
+      <!-- Sweeping Branch 2 (Right low) -->
+      <path d="M 510 550 Q 700 480, 850 450" stroke="url(#trunkGrad)" stroke-width="16" fill="none" stroke-linecap="round" />
+      
+      <!-- Sweeping Branch 3 (Left mid) -->
+      <path d="M 495 480 Q 350 350, 200 300" stroke="url(#trunkGrad)" stroke-width="14" fill="none" stroke-linecap="round" />
+      <!-- Sweeping Branch 4 (Right mid) -->
+      <path d="M 505 480 Q 650 350, 800 300" stroke="url(#trunkGrad)" stroke-width="14" fill="none" stroke-linecap="round" />
+      
+      <!-- Sweeping Branch 5 (Center left) -->
+      <path d="M 498 450 Q 400 250, 350 150" stroke="url(#trunkGrad)" stroke-width="12" fill="none" stroke-linecap="round" />
+      <!-- Sweeping Branch 6 (Center right) -->
+      <path d="M 502 450 Q 600 250, 650 150" stroke="url(#trunkGrad)" stroke-width="12" fill="none" stroke-linecap="round" />
+
+      <!-- Blossom Clusters (Delicate, thinned-out cherry blossom clusters to reveal branches) -->
+      <!-- Left low -->
+      <circle cx="150" cy="450" r="30" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="180" cy="440" r="25" fill="url(#leafGrad2)" opacity="0.9" />
+      
+      <!-- Right low -->
+      <circle cx="850" cy="450" r="30" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="820" cy="440" r="25" fill="url(#leafGrad2)" opacity="0.9" />
+      
+      <!-- Left mid -->
+      <circle cx="200" cy="300" r="35" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="230" cy="285" r="28" fill="url(#leafGrad2)" opacity="0.95" />
+      
+      <!-- Right mid -->
+      <circle cx="800" cy="300" r="35" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="770" cy="285" r="28" fill="url(#leafGrad2)" opacity="0.95" />
+      
+      <!-- Center left -->
+      <circle cx="350" cy="150" r="38" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="380" cy="170" r="30" fill="url(#leafGrad2)" opacity="0.95" />
+      
+      <!-- Center right -->
+      <circle cx="650" cy="150" r="38" fill="url(#leafGrad1)" opacity="0.95" />
+      <circle cx="620" cy="170" r="30" fill="url(#leafGrad2)" opacity="0.95" />
+      
+      <!-- Central canopy filler - thinned out significantly -->
+      <circle cx="500" cy="240" r="45" fill="url(#leafGrad2)" opacity="0.85" />
+      <circle cx="460" cy="220" r="30" fill="url(#leafGrad1)" opacity="0.85" />
+      <circle cx="540" cy="220" r="30" fill="url(#leafGrad1)" opacity="0.85" />
+      <circle cx="470" cy="320" r="35" fill="url(#leafGrad2)" opacity="0.85" />
+      <circle cx="530" cy="320" r="35" fill="url(#leafGrad2)" opacity="0.85" />
+
+      <!-- Perched Lovebirds on Fork Branch -->
+      <g class="lovebirds-couple" transform="translate(390, 405)">
+        <!-- Bird 1 (Pink) -->
+        <g class="lovebird lovebird-1" transform="translate(0, 0)">
+          <!-- Tail -->
+          <path d="M -5 10 L -15 25 L -8 27 Z" fill="#e8436a" />
+          <!-- Body -->
+          <ellipse cx="0" cy="8" rx="10" ry="8" fill="#e8436a" />
+          <!-- Breast -->
+          <ellipse cx="4" cy="9" rx="8" ry="7" fill="#ff9eb5" />
+          <!-- Head -->
+          <circle cx="5" cy="0" r="7" fill="#e8436a" />
+          <!-- Beak -->
+          <polygon points="11,-2 16,0 11,2" fill="#ffd700" />
+          <!-- Eye -->
+          <circle cx="6" cy="-2" r="1.2" fill="#ffffff" />
+          <circle cx="6.2" cy="-2" r="0.6" fill="#000000" />
+          <!-- Wing -->
+          <path d="M -4 6 Q -12 8, -6 14 Q 2 12, -4 6 Z" fill="#ff7597" />
+        </g>
+        <!-- Bird 2 (Rose/Peach - facing left towards Bird 1) -->
+        <g class="lovebird lovebird-2" transform="translate(18, 2) scale(-1, 1)">
+          <!-- Tail -->
+          <path d="M -5 10 L -15 25 L -8 27 Z" fill="#c9184a" />
+          <!-- Body -->
+          <ellipse cx="0" cy="8" rx="10" ry="8" fill="#c9184a" />
+          <!-- Breast -->
+          <ellipse cx="4" cy="9" rx="8" ry="7" fill="#ffd1dc" />
+          <!-- Head -->
+          <circle cx="5" cy="0" r="7" fill="#c9184a" />
+          <!-- Beak -->
+          <polygon points="11,-2 16,0 11,2" fill="#ffd700" />
+          <!-- Eye -->
+          <circle cx="6" cy="-2" r="1.2" fill="#ffffff" />
+          <circle cx="6.2" cy="-2" r="0.6" fill="#000000" />
+          <!-- Wing -->
+          <path d="M -4 6 Q -12 8, -6 14 Q 2 12, -4 6 Z" fill="#ff7597" />
+        </g>
+        <!-- Little floating hearts above their heads -->
+        <path d="M 8 -12 C 8 -12, 5 -16, 2 -16 C -1 -16, -3 -14, -3 -11 C -3 -7, 8 -2, 8 -2 C 8 -2, 19 -7, 19 -11 C 19 -14, 17 -16, 14 -16 C 11 -16, 8 -12, 8 -12 Z" fill="#e8436a" transform="scale(0.35) translate(16, -35)">
+          <animate attributeName="transform" values="scale(0.35) translate(16, -35); scale(0.42) translate(16, -42); scale(0.35) translate(16, -35)" dur="2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.8; 1; 0.8" dur="2s" repeatCount="indefinite" />
+        </path>
+      </g>
+
+      <!-- Flying Birds -->
+      <!-- Bird 1 (Flying left-to-right) -->
+      <g class="flying-bird-1">
+        <g transform="translate(0, 0)">
+          <!-- Tail -->
+          <path d="M -15 2 L -25 7 L -22 -3 Z" fill="#e8436a" />
+          <!-- Body -->
+          <path d="M -15 0 C -15 -10, 15 -10, 15 0 C 15 10, -15 10, -15 0 Z" fill="#e8436a" />
+          <!-- Head & Beak -->
+          <circle cx="18" cy="-2" r="5" fill="#e8436a" />
+          <polygon points="22,-4 27,-2 22,0" fill="#ffd700" />
+          <!-- Left Wing (Top/Back) -->
+          <path class="bird-wing-left" d="M 0 0 C -10 -22, 10 -22, 5 -2 C 2 -1, 1 -1, 0 0 Z" fill="#ff7597" />
+          <!-- Right Wing (Bottom/Front) -->
+          <path class="bird-wing-right" d="M 0 0 C -10 22, 10 22, 5 2 C 2 1, 1 1, 0 0 Z" fill="#ff9eb5" />
+        </g>
+      </g>
+
+      <!-- Bird 2 (Smaller, flying right-to-left) -->
+      <g class="flying-bird-2">
+        <g transform="translate(0, 0)">
+          <!-- Tail -->
+          <path d="M -15 2 L -25 7 L -22 -3 Z" fill="#c9184a" />
+          <!-- Body -->
+          <path d="M -15 0 C -15 -10, 15 -10, 15 0 C 15 10, -15 10, -15 0 Z" fill="#c9184a" />
+          <!-- Head & Beak -->
+          <circle cx="18" cy="-2" r="5" fill="#c9184a" />
+          <polygon points="22,-4 27,-2 22,0" fill="#ffd700" />
+          <!-- Left Wing -->
+          <path class="bird-wing-left" d="M 0 0 C -10 -22, 10 -22, 5 -2 C 2 -1, 1 -1, 0 0 Z" fill="#ff7597" />
+          <!-- Right Wing -->
+          <path class="bird-wing-right" d="M 0 0 C -10 22, 10 22, 5 2 C 2 1, 1 1, 0 0 Z" fill="#ff9eb5" />
+        </g>
+      </g>
+
+      <!-- Small floating petals -->
+      <g id="elegantPetals">
+        <path d="M 300 500 Q 310 510, 305 520 Q 295 510, 300 500 Z" fill="#ff9eb5">
+          <animate attributeName="transform" values="translate(0,0) rotate(0); translate(-30, 80) rotate(20)" dur="4s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="1; 0" dur="4s" repeatCount="indefinite" />
+        </path>
+        <path d="M 700 450 Q 710 460, 705 470 Q 695 460, 700 450 Z" fill="#ff7597">
+          <animate attributeName="transform" values="translate(0,0) rotate(0); translate(40, 100) rotate(-30)" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.9; 0" dur="5s" repeatCount="indefinite" />
+        </path>
+        <path d="M 450 600 Q 460 610, 455 620 Q 445 610, 450 600 Z" fill="#e8436a">
+          <animate attributeName="transform" values="translate(0,0) rotate(0); translate(-20, 90) rotate(40)" dur="3.5s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.8; 0" dur="3.5s" repeatCount="indefinite" />
+        </path>
+      </g>
+    </svg>
+
+    <!-- Hanging Photos (Coordinates matched to the sweeping branches) -->
+    <!-- Frame 1: Left mid branch -->
+    <div class="tree-frame" style="left: 26%; top: 37%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image28.jpg" alt="Memory"></div>
+    </div>
+    <!-- Frame 2: Center left branch -->
+    <div class="tree-frame" style="left: 41%; top: 18%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image41.jpg" alt="Memory"></div>
+    </div>
+    <!-- Frame 3: Center right branch -->
+    <div class="tree-frame" style="left: 59%; top: 18%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image42.jpg" alt="Memory"></div>
+    </div>
+    <!-- Frame 4: Right mid branch -->
+    <div class="tree-frame" style="left: 74%; top: 37%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image43.jpg" alt="Memory"></div>
+    </div>
+    <!-- Frame 5: Left low branch -->
+    <div class="tree-frame" style="left: 20%; top: 56%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image47.jpg" alt="Memory"></div>
+    </div>
+    <!-- Frame 6: Right low branch -->
+    <div class="tree-frame" style="left: 80%; top: 56%;">
+      <div class="tree-string"></div>
+      <div class="tree-photo"><img src="assets/image45.jpg" alt="Memory"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <span class="footer-big-heart">💗</span>
+  <h2 class="footer-title">You Are My Universe</h2>
+  <p class="footer-sub">
+    "If the universe holds a billion galaxies, and each galaxy holds a billion stars —
+    I would still choose to orbit only you.
+    You are my everything."
+  </p>
+  <div class="footer-emojis">🌹 💕 🌸 💝 🌷 💗 🌺 💞 🌹</div>
+  <p style="margin-top:48px; font-style:italic; color:rgba(255,255,255,.4); font-size:.85rem;">
+    Crafted with infinite love 💗
+  </p>
+</footer>
+
+<!-- ─────────────────────────── JAVASCRIPT ─────────────────────────── -->
+<script>
+/* ── CUSTOM CURSOR ── */
+const cur = document.getElementById('cursor');
+const curT = document.getElementById('cursor-trail');
+let mx=0,my=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  setTimeout(()=>{ curT.style.left=mx+'px'; curT.style.top=my+'px'; },80);
+});
+
+/* ── FLOATING HERO EMOJIS ── */
+const heroFloatingContainer = document.getElementById('heroFloatingEmojis');
+const heroEmojis = ['💖', '💗', '🌸', '🌹', '🎈', '✨', '💕', '🌷', '💝'];
+for (let i = 0; i < 25; i++) {
+  const emojiEl = document.createElement('span');
+  emojiEl.className = 'hero-floating-emoji';
+  emojiEl.textContent = heroEmojis[Math.floor(Math.random() * heroEmojis.length)];
+  emojiEl.style.left = Math.random() * 100 + '%';
+  emojiEl.style.setProperty('--size', (16 + Math.random() * 24) + 'px');
+  emojiEl.style.setProperty('--opacity', (0.15 + Math.random() * 0.3));
+  emojiEl.style.setProperty('--duration', (10 + Math.random() * 14) + 's');
+  emojiEl.style.setProperty('--delay', (-Math.random() * 20) + 's');
+  emojiEl.style.setProperty('--sway', ((Math.random() - 0.5) * 80) + 'px');
+  heroFloatingContainer.appendChild(emojiEl);
+}
+
+/* ── BURST PARTICLES ── */
+const burstEmojis=['💕','🌹','💗','🌸','💖','✨','🌺','💝','⭐','🫀','🌷'];
+function burstFrom(e){
+  const cx=e.clientX||e.pageX, cy=e.clientY||e.pageY;
+  for(let i=0;i<10;i++){
+    const p=document.createElement('div');
+    p.className='burst-particle';
+    p.textContent=burstEmojis[Math.floor(Math.random()*burstEmojis.length)];
+    const a=(i/10)*Math.PI*2;
+    const d=50+Math.random()*80;
+    p.style.left=cx+'px'; p.style.top=cy+'px';
+    p.style.setProperty('--tx',Math.cos(a)*d+'px');
+    p.style.setProperty('--ty',Math.sin(a)*d+'px');
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),1400);
+  }
+}
+document.addEventListener('click',burstFrom);
+
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); obs.unobserve(en.target); } });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── HERO HEART CLICK ── */
+document.getElementById('heroHeart').addEventListener('click',e=>{
+  burstFrom(e);
+  const el=e.target;
+  el.style.transform='scale(1.4)';
+  setTimeout(()=>el.style.transform='',400);
+});
+
+/* ── PROMISE SEAL ── */
+function sealPromise(el,e){
+  el.classList.toggle('sealed');
+  if(el.classList.contains('sealed')) burstFrom(e);
+}
+
+/* ── DAYS TOGETHER COUNTER FROM 26/07/2022 ── */
+(function(){
+  const startDate = new Date('2022-07-26T00:00:00');
+  const el = document.getElementById('daysTogether');
+  function getDays(){
+    const now = new Date();
+    return Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+  }
+  el.textContent = getDays().toLocaleString();
+})();
+
+/* ── LIGHTBOX ── */
+const lb=document.getElementById('lightbox');
+const lbH=document.getElementById('lightboxHeart');
+function openLightbox(frame){
+  // Prevent lightbox opening if we clicked the back of the card or during flip transition
+  const ph = frame.querySelector('.heart-card-front .heart-img-placeholder');
+  const img = ph.querySelector('img');
+  lbH.innerHTML='';
+  if(img){
+    const i=img.cloneNode();
+    i.style.cssText='width:100%;height:100%;object-fit:cover;';
+    lbH.appendChild(i);
+  } else {
+    lbH.innerHTML=ph.innerHTML;
+    lbH.style.display='flex';
+    lbH.style.alignItems='center';
+    lbH.style.justifyContent='center';
+    lbH.style.flexDirection='column';
+    lbH.style.gap='16px';
+    lbH.style.background='linear-gradient(135deg,#fce4ec,#e8436a)';
+    lbH.style.color='white';
+    lbH.style.fontFamily="'Dancing Script',cursive";
+    lbH.style.fontSize='1.5rem';
+  }
+  lb.classList.add('open');
+}
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+
+/* ── MUSIC TOGGLE ── */
+document.getElementById('musicBtn').addEventListener('click',function(){
+  this.classList.toggle('spinning');
+  this.textContent=this.classList.contains('spinning')?'🎶':'🎵';
+});
+
+/* ── REASON CARDS: click burst on front face ── */
+document.querySelectorAll('.reason-flip-wrapper').forEach(wrapper => {
+  wrapper.addEventListener('click', e => {
+    const front = wrapper.querySelector('.reason-card-front');
+    const emoji = front.querySelector('.reason-emoji');
+    if (!emoji) return;
+    const customBurst = [emoji.textContent, '✨', '💖', '💕', '🌸', '💫'];
+    const cx = e.clientX;
+    const cy = e.clientY;
+    for (let i = 0; i < 12; i++) {
+      const p = document.createElement('div');
+      p.className = 'burst-particle';
+      p.textContent = customBurst[Math.floor(Math.random() * customBurst.length)];
+      const a = (i / 12) * Math.PI * 2;
+      const d = 55 + Math.random() * 80;
+      p.style.left = cx + 'px';
+      p.style.top = cy + 'px';
+      p.style.setProperty('--tx', Math.cos(a) * d + 'px');
+      p.style.setProperty('--ty', Math.sin(a) * d + 'px');
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 1400);
+    }
+    e.stopPropagation();
+  });
+});
+
+/* ── ENVELOPE TOGGLE + LETTER OVERLAY ── */
+function toggleEnvelope(el, event) {
+  if (!el.classList.contains('open')) {
+    el.classList.add('open');
+    burstFrom(event);
+    // Open full letter overlay after brief delay
+    setTimeout(() => {
+      document.getElementById('letterOverlay').classList.add('open');
+    }, 400);
+  }
+}
+
+function closeLetter() {
+  document.getElementById('letterOverlay').classList.remove('open');
+  // Reset envelope
+  document.querySelectorAll('.envelope-wrapper').forEach(e => e.classList.remove('open'));
+}
+
+// Close overlay on background click
+document.getElementById('letterOverlay').addEventListener('click', function(e){
+  if (e.target === this) closeLetter();
+});
+
+/* ── SIGNATURE ── */
+function applySignature() {
+  const signText = document.getElementById('signatureText');
+  const signLine = document.getElementById('signatureUnderline');
+  const btn = document.getElementById('signBtn');
+  signText.classList.add('signed');
+  signLine.classList.add('signed');
+  btn.classList.add('done');
+  btn.textContent = '✅ Signed!';
+  const rect = btn.getBoundingClientRect();
+  burstFrom({ clientX: rect.left + rect.width/2, clientY: rect.top + rect.height/2 });
+
+  // Show the Happy Married Life popup after 3 seconds
+  setTimeout(() => {
+    document.getElementById('marriedLifePopup').classList.add('open');
+    // Trigger confetti burst
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        burstFrom({
+          clientX: Math.random() * window.innerWidth,
+          clientY: Math.random() * window.innerHeight * 0.5
+        });
+      }, i * 300);
+    }
+  }, 3000);
+}
+
+function scrollToTree() {
+  document.getElementById('marriedLifePopup').classList.remove('open');
+  const treeSection = document.getElementById('loveTreeSection');
+  if (treeSection) {
+    treeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/* ── FOOTER HEART CLICK ── */
+document.querySelector('.footer-big-heart').addEventListener('click', e => {
+  burstFrom(e);
+});
+
+/* ═══════════════════════════════════════════════
+   HEART PHOTO RAIN — Canvas Animation
+═══════════════════════════════════════════════ */
+const rainCanvas = document.getElementById('photoRainCanvas');
+const rCtx = rainCanvas.getContext('2d');
+
+const PHOTO_GRADIENTS = [
+  ['#fce4ec','#f48fb1','#e91e63'],
+  ['#fff0f3','#ffc2d4','#e8436a'],
+  ['#ffeef5','#f9a8c9','#d63865'],
+  ['#fce8f0','#f7a8bb','#b5204e'],
+  ['#fdeef5','#f5c0d0','#c2185b'],
+  ['#fdf0f4','#fce4ec','#e8436a'],
+];
+
+const RAIN_IMAGE_PATHS = [
+  'assets/image15.jpg',
+  'assets/image16.jpg',
+  'assets/image17.jpg',
+  'assets/image18.jpg',
+  'assets/image19.jpg',
+  'assets/image20.jpg',
+  'assets/image21.jpg',
+  'assets/image22.jpg',
+];
+
+const RAIN_EMOJIS = ['💕','🌹','💗','🌸','💖','💝','🌷','💞'];
+const PHOTO_EMOJIS = ['📸','🌹','💗','🌸','🌺','♾️','🫂','💕'];
+
+const loadedImgs = [];
+RAIN_IMAGE_PATHS.forEach(path => {
+  const img = new Image();
+  img.src = path;
+  img.onload = () => { img._broken = false; };
+  img.onerror = () => { img._broken = true; };
+  loadedImgs.push(img);
+});
+
+function resizeRain(){
+  const sec = rainCanvas.parentElement;
+  rainCanvas.width = sec.offsetWidth;
+  rainCanvas.height = sec.offsetHeight;
+}
+resizeRain();
+window.addEventListener('resize', resizeRain);
+
+class RainHeart {
+  constructor(){
+    this.reset(true);
+  }
+  reset(init=false){
+    this.x = Math.random() * (rainCanvas.width || 800);
+    this.y = init ? -Math.random()*800 : -260;
+    this.size = 60 + Math.random()*100;
+    this.speed = 0.8 + Math.random()*1.8;
+    this.sway = Math.random()*2-1;
+    this.swaySpeed = 0.01+Math.random()*0.02;
+    this.swayOffset = Math.random()*Math.PI*2;
+    this.alpha = 0.55 + Math.random()*0.4;
+    this.rot = (Math.random()-.5)*0.4;
+    this.gradIdx = Math.floor(Math.random()*PHOTO_GRADIENTS.length);
+    this.imgIdx = Math.floor(Math.random()*RAIN_IMAGE_PATHS.length);
+    this.emoji = PHOTO_EMOJIS[Math.floor(Math.random()*PHOTO_EMOJIS.length)];
+    this.tick = 0;
+    this.isPhoto = loadedImgs.length > 0; // use local image whenever available
+  }
+  drawHeartPath(ctx,cx,cy,s){
+    const scale=s/200;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy+45*scale);
+    ctx.bezierCurveTo(cx, cy+35*scale, cx-10*scale, cy, cx-35*scale, cy);
+    ctx.bezierCurveTo(cx-70*scale, cy, cx-70*scale, cy+52.5*scale, cx-70*scale, cy+52.5*scale);
+    ctx.bezierCurveTo(cx-70*scale, cy+85*scale, cx-35*scale, cy+111*scale, cx, cy+140*scale);
+    ctx.bezierCurveTo(cx+35*scale, cy+111*scale, cx+70*scale, cy+85*scale, cx+70*scale, cy+52.5*scale);
+    ctx.bezierCurveTo(cx+70*scale, cy+52.5*scale, cx+70*scale, cy, cx+35*scale, cy);
+    ctx.bezierCurveTo(cx+10*scale, cy, cx, cy+35*scale, cx, cy+45*scale);
+    ctx.closePath();
+  }
+  update(){ this.y+=this.speed; this.tick++; this.x+=Math.sin(this.tick*this.swaySpeed+this.swayOffset)*this.sway; }
+  isDead(){ return this.y > (rainCanvas.height||600)+300; }
+  draw(rCtx){
+    rCtx.save();
+    rCtx.globalAlpha = this.alpha;
+    rCtx.translate(this.x, this.y);
+    rCtx.rotate(this.rot);
+
+    const s = this.size;
+    const hw = s*0.7, hh = s*0.7;
+
+    // Clip to heart shape
+    rCtx.save();
+    this.drawHeartPath(rCtx, 0, -hh*0.2, s);
+    rCtx.clip();
+
+    const img = loadedImgs[this.imgIdx];
+    const hasValidImage = this.isPhoto && img && img.complete && !img._broken && img.naturalWidth > 0 && img.naturalHeight > 0;
+    if (hasValidImage) {
+      const drawSize = s * 1.45;
+      // Center-crop the source image to a square so faces are centered in the heart
+      const srcSize = Math.min(img.naturalWidth, img.naturalHeight);
+      const sx = Math.max(0, Math.floor((img.naturalWidth - srcSize) / 2));
+      const sy = Math.max(0, Math.floor((img.naturalHeight - srcSize) / 2));
+      const dx = -drawSize / 2;
+      const dy = -drawSize * 0.6;
+      rCtx.drawImage(img, sx, sy, srcSize, srcSize, dx, dy, drawSize, drawSize);
+      rCtx.fillStyle = 'rgba(255,255,255,0.18)';
+      rCtx.fillRect(dx, dy, drawSize, drawSize);
+    } else {
+      const g = PHOTO_GRADIENTS[this.gradIdx];
+      const grad = rCtx.createLinearGradient(-hw,-hh,hw,hh);
+      grad.addColorStop(0, g[0]);
+      grad.addColorStop(0.5, g[1]);
+      grad.addColorStop(1, g[2]);
+      rCtx.fillStyle = grad;
+      rCtx.fill();
+
+      rCtx.restore(); rCtx.save();
+      this.drawHeartPath(rCtx, 0, -hh*0.2, s);
+      rCtx.clip();
+      rCtx.fillStyle='rgba(255,255,255,0.18)';
+      rCtx.fill();
+      rCtx.font = `${s*0.32}px serif`;
+      rCtx.textAlign='center';
+      rCtx.textBaseline='middle';
+      rCtx.fillText(this.emoji, 0, hh*0.25);
+    }
+    rCtx.restore();
+
+    // Border ring
+    rCtx.save();
+    this.drawHeartPath(rCtx, 0, -hh*0.2, s);
+    rCtx.strokeStyle='rgba(232,67,106,0.6)';
+    rCtx.lineWidth=2.5;
+    rCtx.stroke();
+    rCtx.restore();
+
+    // White shimmer highlight
+    rCtx.save();
+    this.drawHeartPath(rCtx, 0, -hh*0.2, s);
+    rCtx.clip();
+    const shine=rCtx.createLinearGradient(-hw,-hh,0,0);
+    shine.addColorStop(0,'rgba(255,255,255,0.25)');
+    shine.addColorStop(1,'rgba(255,255,255,0)');
+    rCtx.fillStyle=shine;
+    rCtx.fill();
+    rCtx.restore();
+
+    rCtx.restore();
+  }
+}
+
+const rainHearts=[];
+const MAX_RAIN=22;
+for(let i=0;i<MAX_RAIN;i++) rainHearts.push(new RainHeart());
+
+function animateRain(){
+  rCtx.clearRect(0,0,rainCanvas.width,rainCanvas.height);
+  rainHearts.forEach(h=>{
+    h.update();
+    h.draw(rCtx);
+    if(h.isDead()) h.reset();
+  });
+  requestAnimationFrame(animateRain);
+}
+animateRain();
+
+/* ── CLOUD GATE SCROLL REVEAL ANIMATION ── */
+(function() {
+  const gateWrapper = document.querySelector('.cloud-gate-wrapper');
+  const revealedContent = document.querySelector('.cloud-revealed-content');
+  
+  const left1 = document.querySelector('.cloud-left-1');
+  const left2 = document.querySelector('.cloud-left-2');
+  const left3 = document.querySelector('.cloud-left-3');
+  
+  const right1 = document.querySelector('.cloud-right-1');
+  const right2 = document.querySelector('.cloud-right-2');
+  const right3 = document.querySelector('.cloud-right-3');
+  
+  const puff1 = document.querySelector('.puff-1');
+  const puff2 = document.querySelector('.puff-2');
+
+  function updateCloudReveal() {
+    if (!gateWrapper) return;
+    
+    const rect = gateWrapper.getBoundingClientRect();
+    const wrapperHeight = rect.height;
+    const stickyHeight = window.innerHeight;
+    
+    const startScroll = -rect.top;
+    const totalScrollRange = wrapperHeight - stickyHeight;
+    
+    let scrollPct = startScroll / totalScrollRange;
+    if (scrollPct < 0) scrollPct = 0;
+    if (scrollPct > 1) scrollPct = 1;
+    
+    // Parallax cloud translations
+    // Left clouds move left
+    if (left1) left1.style.transform = `translateX(${-scrollPct * 110}%)`;
+    if (left2) left2.style.transform = `translateX(${-scrollPct * 140}%)`;
+    if (left3) left3.style.transform = `translateX(${-scrollPct * 170}%)`;
+    
+    // Right clouds move right
+    if (right1) right1.style.transform = `translateX(${scrollPct * 110}%)`;
+    if (right2) right2.style.transform = `translateX(${scrollPct * 140}%)`;
+    if (right3) right3.style.transform = `translateX(${scrollPct * 170}%)`;
+    
+    // Puffs move apart diagonally
+    if (puff1) puff1.style.transform = `translate(${-scrollPct * 250}px, ${-scrollPct * 100}px) scale(${1 - scrollPct * 0.25})`;
+    if (puff2) puff2.style.transform = `translate(${scrollPct * 250}px, ${scrollPct * 100}px) scale(${1 - scrollPct * 0.25})`;
+    
+    // Reveal central content
+    let contentOpacity = 0;
+    let contentScale = 0.9;
+    
+    if (scrollPct > 0.15) {
+      const revealRange = 0.7; // from 0.15 to 0.85
+      const progress = (scrollPct - 0.15) / revealRange;
+      contentOpacity = Math.min(1, progress);
+      contentScale = 0.9 + Math.min(0.1, progress * 0.1);
+    }
+    
+    if (revealedContent) {
+      revealedContent.style.opacity = contentOpacity;
+      revealedContent.style.transform = `scale(${contentScale})`;
+      revealedContent.style.pointerEvents = contentOpacity > 0.5 ? 'auto' : 'none';
+    }
+  }
+  
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(updateCloudReveal);
+  });
+  window.addEventListener('resize', updateCloudReveal);
+  
+  // Run once initially
+  setTimeout(updateCloudReveal, 100);
+})();
+
+/* Dedicated Lightbox for Cloud photo cards */
+function openCloudLightbox(card) {
+  const img = card.querySelector('img');
+  if (img) {
+    const lb = document.getElementById('lightbox');
+    const lbH = document.getElementById('lightboxHeart');
+    lbH.innerHTML = '';
+    const i = img.cloneNode();
+    i.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+    lbH.appendChild(i);
+    lb.classList.add('open');
+  }
+}
+
+</script>
+</body>
+</html>
